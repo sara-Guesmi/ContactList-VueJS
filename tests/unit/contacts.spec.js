@@ -17,7 +17,7 @@ describe("The Contacts.vue component", () => {
   it("Can be mounted", () => {
     expect(wrapper.exists());
   });
-  // it("recieving props check", () => {
-  //   wrapper.props().toEqual([]);
-  // });
+  it("recieving props check", () => {
+    expect(wrapper.vm.contacts).toEqual([]);
+  });
 });

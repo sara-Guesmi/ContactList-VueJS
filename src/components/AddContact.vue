@@ -65,7 +65,7 @@
                     @blur="$v.gender.$touch()"
                   ></v-select>
                   <v-btn
-                    class="mr-4 white--text"
+                    class="mr-4 white--text add"
                     @click="addContact"
                     color="red lighten-2"
                   >

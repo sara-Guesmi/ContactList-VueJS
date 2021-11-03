@@ -18,6 +18,9 @@ describe("The Contact.vue component", () => {
   it("Can be mounted", () => {
     expect(wrapper.exists());
   });
+
+  // ---------------------------------------
+  // Props recieving check
   it("recieving props check", async () => {
     // Update the props passed in to the Contact component
     wrapper.setProps({
@@ -33,7 +36,6 @@ describe("The Contact.vue component", () => {
     await Vue.nextTick();
 
     // check that the prop data is stored as expected within the component
-    console.log(wrapper.vm.contact.id);
     expect(wrapper.vm.contact.id).toEqual(1);
     expect(wrapper.vm.contact.firstName).toEqual("Leanne");
     expect(wrapper.vm.contact.lastName).toEqual("Bret");
@@ -42,5 +44,16 @@ describe("The Contact.vue component", () => {
     // check that the heading text is rendered
     expect(wrapper.find(".name").text()).toEqual("Leanne Bret");
     expect(wrapper.find(".email").text()).toMatch("Sincere@april.biz");
+  });
+
+  // --------------------------------------------------
+  // test  the Delete event Emit
+  it("emits a custom event when the delete button is clicked", () => {
+    // trigger an event when the 'Delete' button is clicked
+    wrapper.find(".delete").trigger("click");
+
+    // check that 1 occurrence of the event has been emitted
+    expect(wrapper.emitted("delete-contact")).toBeTruthy();
+    expect(wrapper.emitted("delete-contact").length).toBe(1);
   });
 });

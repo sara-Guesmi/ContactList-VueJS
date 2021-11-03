@@ -28,7 +28,7 @@
     </v-list-item>
 
     <v-card-actions>
-      <v-btn @click="deleteContact" class="mt-8 ml-6" text>
+      <v-btn @click="deleteContact" class="mt-8 ml-6 delete" text>
         <v-icon color="grey"> mdi-delete </v-icon>
       </v-btn>
 
