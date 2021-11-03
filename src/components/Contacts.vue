@@ -19,8 +19,9 @@
 import Contact from "./Contact.vue";
 
 export default {
-  components: { Contact },
   name: "Contacts",
+
+  components: { Contact },
   props: {
     contacts: {
       type: Array,

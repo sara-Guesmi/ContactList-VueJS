@@ -96,7 +96,9 @@ export default {
     email: { required, email },
     gender: { required },
   },
+
   props: ["contact", "isEdit"],
+
   data() {
     return {
       title: this.isEdit ? "Edit User" : "Add User",
