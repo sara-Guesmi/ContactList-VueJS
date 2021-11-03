@@ -6,11 +6,18 @@ describe("The Contacts.vue component", () => {
   let wrapper;
   // call function before each test
   beforeEach(() => {
-    wrapper = shallowMount(Contacts);
+    wrapper = shallowMount(Contacts, {
+      propsData: {
+        contacts: [],
+      },
+    });
   });
 
   // rendring test
   it("Can be mounted", () => {
     expect(wrapper.exists());
   });
+  // it("recieving props check", () => {
+  //   wrapper.props().toEqual([]);
+  // });
 });

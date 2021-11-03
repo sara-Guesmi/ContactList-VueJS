@@ -13,6 +13,8 @@ describe("AddTask component", () => {
   it("render ", () => {
     expect(wrapper.exists());
   });
+  // test addTask
+  // it("addTask method", () => {});
 });
 
 // it("allows for adding one contact item", async () => {

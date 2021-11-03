@@ -2,11 +2,13 @@
   <v-card class="mx-auto" max-width="344" outlined>
     <v-list-item two-line>
       <v-list-item-content>
-        <v-list-item-title class="text-h5 mb-1">
+        <v-list-item-title class="text-h5 mb-1 name">
           {{ contact.firstName }} {{ contact.lastName }}
         </v-list-item-title>
 
-        <v-list-item-subtitle>{{ contact.email }}</v-list-item-subtitle>
+        <v-list-item-subtitle class="email">{{
+          contact.email
+        }}</v-list-item-subtitle>
       </v-list-item-content>
 
       <v-list-item-avatar tile size="80" color="transparent">
