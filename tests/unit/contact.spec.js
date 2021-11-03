@@ -19,7 +19,7 @@ describe("The Contact.vue component", () => {
     expect(wrapper.exists());
   });
   it("recieving props check", async () => {
-    // Update the props passed in to the Weather component
+    // Update the props passed in to the Contact component
     wrapper.setProps({
       contact: {
         id: 1,
