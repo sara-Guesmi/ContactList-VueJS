@@ -1,10 +1,15 @@
 // Test the addContact component Contacts
 import { shallowMount } from "@vue/test-utils";
 import addContact from "@/components/addContact";
+import Vue from "vue";
+import Vuetify from "vuetify";
+Vue.config.productionTip = false;
+Vue.use(Vuetify);
 
 // describe the behaviour of add Task
 describe("AddTask component", () => {
   let wrapper;
+
   // call function before each test
   beforeEach(() => {
     wrapper = shallowMount(addContact, {
@@ -13,6 +18,7 @@ describe("AddTask component", () => {
       },
     });
   });
+
   // rendring test
   it("render ", () => {
     expect(wrapper.exists());
@@ -20,20 +26,8 @@ describe("AddTask component", () => {
 
   // --------------------------------------------------
   // test  the add  event Emit
-  // it("emits a custom event when Add button is clicked", async () => {
-  //   // Update the props passed in to the Contact component
-  //   wrapper.setProps({
-  //     isEdit: false,
-  //   });
-
-  //   await Vue.nextTick();
-  //   if (!wrapper.vm.isEdit) {
-  //     // trigger an event when the 'Delete' button is clicked
-  //     wrapper.find(".add").trigger("click");
-
-  //     // check that 1 occurrence of the event has been emitted
-  //     expect(wrapper.emitted("addContact")).toBeTruthy();
-  //     expect(wrapper.emitted("addContact").length).toBe(1);
-  //   }
-  // });
+  it("emits a custom event when Add button is clicked", async () => {
+    await wrapper.find(".add").trigger("click");
+    expect(wrapper.emitted()).toBeTruthy();
+  });
 });

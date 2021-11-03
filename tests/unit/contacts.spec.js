@@ -1,7 +1,11 @@
 // Test the component Contacts
 import { shallowMount } from "@vue/test-utils";
 import Contacts from "@/components/Contacts";
-
+import Contact from "@/components/Contact";
+import Vue from "vue";
+import Vuetify from "vuetify";
+Vue.config.productionTip = false;
+Vue.use(Vuetify);
 describe("The Contacts.vue component", () => {
   let wrapper;
   // call function before each test
