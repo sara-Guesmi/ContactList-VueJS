@@ -1,6 +1,7 @@
 // Test the component Contacts
 import { mount, shallowMount } from "@vue/test-utils";
 import Contact from "@/components/Contact";
+
 import Vue from "vue";
 import Vuetify from "vuetify";
 Vue.config.productionTip = false;
