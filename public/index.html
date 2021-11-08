@@ -1,17 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <title><%= htmlWebpackPlugin.options.title %></title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="data:image/png;base64,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"
+    />
+    <title>Contact List</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css"
+    />
   </head>
   <body>
     <noscript>
-      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+      <strong
+        >We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work
+        properly without JavaScript enabled. Please enable it to
+        continue.</strong
+      >
     </noscript>
     <div id="app"></div>
     <!-- built files will be auto injected -->
