@@ -30,14 +30,25 @@ export default {
     searchedContact: "",
   }),
   async created() {
-    let res = await axios.get(`http://localhost:3000/contacts`);
-    this.list = res.data;
+    try {
+      let res = await axios.get(`http://localhost:3000/contacts`);
+      this.list = res.data;
+    } catch (error) {
+      console.log(error);
+    }
   },
   methods: {
     // add a newContact to the list contactData
-    addContact(newContact) {
+    async addContact(newContact) {
       // the variable list recieve a new array , adding the newContact
-      this.list = [...this.list, newContact];
+      try {
+        await axios.post(`http://localhost:3000/contacts`, newContact);
+        let res = await axios.get(`http://localhost:3000/contacts`);
+
+        this.list = res.data;
+      } catch (error) {
+        console.log(error);
+      }
     },
 
     // delete a contact to the list contactData using his id
