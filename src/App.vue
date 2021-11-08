@@ -52,19 +52,36 @@ export default {
     },
 
     // delete a contact to the list contactData using his id
-    deleteContact(id) {
+    async deleteContact(id) {
       // before we delete we should cofirm it
       const confirm = window.confirm("are you sure to delete the contact?");
       // if confirm is true so we filter the data
       if (confirm) {
-        this.list = this.list.filter((contact) => contact.id !== id);
+        try {
+          await axios.delete(`http://localhost:3000/contacts/${id}`);
+          let res = await axios.get(`http://localhost:3000/contacts`);
+
+          this.list = res.data;
+        } catch (error) {
+          console.log(error);
+        }
       }
     },
 
     // edit the current contact
-    editContact(contact) {
+    async editContact(contact) {
       // we search the current contact in the array using the id
-      // if we found it we change its value
+      try {
+        await axios.put(
+          `http://localhost:3000/contacts/${contact.id}`,
+          contact
+        );
+        let res = await axios.get(`http://localhost:3000/contacts`);
+
+        this.list = res.data;
+      } catch (error) {
+        console.log(error);
+      }
       this.list = this.list.map((el) => (el.id == contact.id ? contact : el));
     },
 
