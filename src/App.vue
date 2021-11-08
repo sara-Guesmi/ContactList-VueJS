@@ -95,9 +95,13 @@ export default {
       // serachedList return a filtyred array=> passed as a props to contacts components
       return list.filter(
         (el) =>
-          el.firstName.toLowerCase().includes(searchedContact.toLowerCase()) ||
-          el.lastName.toLowerCase().includes(searchedContact.toLowerCase()) ||
-          el.email.toLowerCase().includes(searchedContact.toLowerCase())
+          el.firstName
+            .toLowerCase()
+            .includes(searchedContact.trim().toLowerCase()) ||
+          el.lastName
+            .toLowerCase()
+            .includes(searchedContact.trim().toLowerCase()) ||
+          el.email.toLowerCase().includes(searchedContact.trim().toLowerCase())
       );
     },
   },
