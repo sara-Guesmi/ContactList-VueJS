@@ -16,8 +16,7 @@
 <script>
 import Contacts from "./components/Contacts.vue";
 import AddContact from "./components/AddContact.vue";
-import { contacts } from "./constants/contact";
-
+import axios from "axios";
 export default {
   name: "App",
 
@@ -27,9 +26,13 @@ export default {
   },
 
   data: () => ({
-    list: contacts,
+    list: [],
     searchedContact: "",
   }),
+  async created() {
+    let res = await axios.get(`http://localhost:3000/contacts`);
+    this.list = res.data;
+  },
   methods: {
     // add a newContact to the list contactData
     addContact(newContact) {
